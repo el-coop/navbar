@@ -15,7 +15,7 @@ class NavbarService {
 		if ($userType == '') {
 			return config('default.navbar', []);
 		}
-		$userType = class_basename($userType);
+		$userType = strtolower(class_basename($userType));
 		return config($userType . '.navbar', config('default.navbar', []));
 	}
 }
